@@ -8,7 +8,7 @@ var diffX;
 var diffY;
 var angle_rad;
 var angle_deg;
-var img=document.getElementsByTagName("img")[0]
+var img=document.getElementById("player")
 var bulletList = [];
 var bulletid=1
 var xpos 
@@ -32,11 +32,9 @@ class bullet {
     }
     createbullet ()
     {
-        var mydiv = document.createElement("div");
-        mydiv.style.position='relative';
+        var mydiv = document.createElement("div")
         mydiv.style.backgroundColor='transparent';
-        mydiv.style.width='30px';
-        mydiv.style.height='30px';
+  
         mydiv.style.position='absolute'
         mydiv.style.display='none';
         mydiv.style.boxSizing='border-box';
@@ -57,13 +55,31 @@ class bullet {
     }  
     move()
     {
-        if(this.xpos>1920 || this.ypos>1080 || this.xpos<0 || this.ypos<0)
+        var  hitt = false
+        
+        var zmbs = document.getElementsByClassName("test")
+        for (let index = 0; index < zmbs.length; index++) {
+
+            if(zmbs[index].offsetLeft<=this.xpos && zmbs[index].offsetLeft+59>=this.xpos)
+            {
+                console.log("xxxxxxxxxxxxxx");
+                if(zmbs[index].offsetTop<=this.ypos && zmbs[index].offsetTop+79>=this.ypos)
+                {
+                    console.log("yyyyyyyyyyyyyyy");
+
+                    zmbs[index].remove();
+                    hitt =true
+                }
+
+            }
+            
+        }
+        if(this.xpos>2100 || this.ypos>1180 || this.xpos<200 || this.ypos<150 || hitt )
         {
             clearInterval(this.intervalid)
             var ele= document.getElementById(this.id+"div")
             ele.remove()
              // bulletList.pop() remove by this id
-       
         }
         else
         {
@@ -101,17 +117,17 @@ class Player {
     move() 
     { 
         
-        document.getElementsByTagName("div")[0].style.display='inline';
-        document.getElementsByTagName("div")[0].style.boxSizing='border-box';
-        document.getElementsByTagName("div")[0].style.left=''+ x +'px';
-        document.getElementsByTagName("div")[0].style.top=''+ y +'px';             
+        document.getElementById("playerdiv").style.display='inline';
+        document.getElementById("playerdiv").style.boxSizing='border-box';
+        document.getElementById("playerdiv").style.left=''+ x +'px';
+        document.getElementById("playerdiv").style.top=''+ y +'px';             
     }
 }
 var p1 = new Player ("islam",1,2);
 document.addEventListener('click',(event) =>{   
     
 
-    var bu = new bullet (x,y,angle_rad,15,bulletid)
+    var bu = new bullet (x+200,y+150,angle_rad,15,bulletid)
     bu.createbullet()
     bulletList.push(bu)
     bulletid +=1
@@ -119,7 +135,7 @@ document.addEventListener('click',(event) =>{
 
 })
     document.addEventListener('mousemove',(event) =>{
-        var div=document.getElementsByTagName("div")[0]
+        var div=document.getElementById("playerdiv")
         imgX=div.offsetLeft+img.width/2
         imgY=div.offsetTop+img.height/2
         mouseX=event.clientX;
@@ -131,7 +147,7 @@ document.addEventListener('click',(event) =>{
         update();
         })
     function  update(){
-    document.getElementsByTagName("img")[0].style.transform='rotate('+angle_deg+'deg)'
+    document.getElementById("player").style.transform='rotate('+angle_deg+'deg)'
             
     }
     
@@ -199,3 +215,13 @@ document.addEventListener('click',(event) =>{
 
 
     setInterval(p1.move,1)
+    var mydiv = document.createElement("div");
+    mydiv.style.position='absolute'
+    mydiv.style.boxSizing='border-box';
+    mydiv.style.left='500px'
+    mydiv.style.top='500px'
+    mydiv.className="test"    
+    var bulle = document.createElement("img");
+    bulle.src = "1.png";
+    mydiv.appendChild(bulle);
+    document.getElementById("bod").appendChild(mydiv);
