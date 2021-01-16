@@ -1,24 +1,26 @@
 
 
 body{
-    background-image:url('animated.gif');
-    background-attachment: fixed;
+    background-image:url('grave.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    background-attachment: fixed;
 }
 .slideShowContainer{
-    width:100%;
-    margin: auto;
-    height: 768px;
-    position: relative;
+    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    
 }
 .mySlides{
     display: none;
     background-color: black;
-    position: relative;
+    position: absolute;
     top: 50%;
     width: 100%;
     box-sizing: border-box;
+    height: 50px;
 }
 
 .prev , .next{
@@ -35,8 +37,13 @@ body{
 }
 
 .next{
-    position: absolute;
-    right: 5px;
+    right: 0px;
+    padding-top: 10px;
+    box-sizing: border-box
+}
+.prev{
+    padding-top: 10px;
+    box-sizing: border-box;
 }
 
 .next:hover, .prev:hover{
@@ -51,5 +58,10 @@ p{
     font-size: xx-large;
     text-align: center;
     height: 50px;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0px;
+    
 }
+
 
