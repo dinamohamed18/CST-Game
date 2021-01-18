@@ -20,7 +20,7 @@ body{
     top: 50%;
     width: 100%;
     box-sizing: border-box;
-    height: 50px;
+    height: 80px;
 }
 
 .prev , .next{
@@ -33,16 +33,16 @@ body{
     margin: 0px;
     background-color: white;
     border-radius: 5px;
-    height: 50px;
+    height: 80px;
 }
 
 .next{
     right: 0px;
-    padding-top: 10px;
-    box-sizing: border-box
+    padding-top: 20px;
+    box-sizing: border-box;
 }
 .prev{
-    padding-top: 10px;
+    padding-top: 20px;
     box-sizing: border-box;
 }
 
@@ -57,20 +57,21 @@ p{
     color: white;
     font-size: xx-large;
     text-align: center;
-    height: 50px;
+    height: 80px;
     position: relative;
     box-sizing: border-box;
     margin: 0px;
+    padding-top: 10px;
     
 }
 button{
     position : absolute;
-    top : 1cm;
-    left:0%;
+    top : 85%;
     width: 100px;
     height: 50px;
     font-size: x-large;
 }
+
 
 .glow-on-hover {
     width: 300px;
