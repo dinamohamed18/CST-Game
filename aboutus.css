@@ -16,6 +16,7 @@ body {
     font-family: sans-serif;
     text-transform: uppercase;
     font-size: 2em;
+    font-weight: bolder;
     letter-spacing: 4px;
     overflow: hidden;
     background: linear-gradient(90deg, #000, white, #000);
